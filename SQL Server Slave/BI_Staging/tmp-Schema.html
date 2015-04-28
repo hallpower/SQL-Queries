@@ -1,0 +1,191 @@
+<html>
+<head><meta http-equiv="content-type" content="text/html; charset=UTF-8"></head>
+<body>
+<h5 align="right" style="color: gray; ">Snapshot on 2014-02-18 12:12:47</h5>
+<h3>Schema: dbo</h3>
+<br>
+<h4>PostalServiceTracking2</h4>
+<table border=1 width=75%>
+<tr>
+	<th width=35%>Field</th>
+	<th width=30%>Type</th>
+	<th width=15%>Allow Null</th>
+	<th width=20%>Default Value</th>
+</tr>
+<tr>
+	<td width=35%>PostalServiceProvider</td>
+	<td width=30%>varchar(8)</td>
+	<td width=15%>No</td>
+	<td width=20%></td>
+</tr>
+<tr>
+	<td width=35%>TrackingID</td>
+	<td width=30%>varchar(50)</td>
+	<td width=15%>No</td>
+	<td width=20%></td>
+</tr>
+<tr>
+	<td width=35%>OrderID</td>
+	<td width=30%>varchar(20)</td>
+	<td width=15%>No</td>
+	<td width=20%></td>
+</tr>
+<tr>
+	<td width=35%>isUploaded</td>
+	<td width=30%>AS (case when [UploadTimestamp] IS NULL then (0) else (1) end)</td>
+	<td width=15%>No</td>
+	<td width=20%></td>
+</tr>
+<tr>
+	<td width=35%>isKnownToPostalService</td>
+	<td width=30%>AS (case when [KnownToPostalServiceTimestamp] IS NULL then (0) else (1) end)</td>
+	<td width=15%>No</td>
+	<td width=20%></td>
+</tr>
+<tr>
+	<td width=35%>isInPostalService</td>
+	<td width=30%>AS (case when [PostalServiceTimestamp] IS NULL then (0) else (1) end)</td>
+	<td width=15%>No</td>
+	<td width=20%></td>
+</tr>
+<tr>
+	<td width=35%>isDelivered</td>
+	<td width=30%>AS (case when [DeliveryTimestamp] IS NULL then (0) else (1) end)</td>
+	<td width=15%>No</td>
+	<td width=20%></td>
+</tr>
+<tr>
+	<td width=35%>UploadTimestamp</td>
+	<td width=30%>datetime</td>
+	<td width=15%>Yes</td>
+	<td width=20%></td>
+</tr>
+<tr>
+	<td width=35%>KnownToPostalServiceTimestamp</td>
+	<td width=30%>datetime</td>
+	<td width=15%>Yes</td>
+	<td width=20%></td>
+</tr>
+<tr>
+	<td width=35%>PostalServiceTimestamp</td>
+	<td width=30%>datetime</td>
+	<td width=15%>Yes</td>
+	<td width=20%></td>
+</tr>
+<tr>
+	<td width=35%>DeliveryTimestamp</td>
+	<td width=30%>datetime</td>
+	<td width=15%>Yes</td>
+	<td width=20%></td>
+</tr>
+<tr>
+	<td width=35%>OrderTimestamp</td>
+	<td width=30%>datetime</td>
+	<td width=15%>Yes</td>
+	<td width=20%></td>
+</tr>
+<tr>
+	<td width=35%>LogisticTimestamp</td>
+	<td width=30%>datetime</td>
+	<td width=15%>Yes</td>
+	<td width=20%></td>
+</tr>
+<tr>
+	<td width=35%>LogisticEndTimestamp</td>
+	<td width=30%>datetime</td>
+	<td width=15%>Yes</td>
+	<td width=20%></td>
+</tr>
+<tr>
+	<td width=35%>KnownToPostalServiceTimestamp_old</td>
+	<td width=30%>datetime</td>
+	<td width=15%>Yes</td>
+	<td width=20%></td>
+</tr>
+<tr>
+	<td width=35%>PostalServiceTimestamp_old</td>
+	<td width=30%>datetime</td>
+	<td width=15%>Yes</td>
+	<td width=20%></td>
+</tr>
+<tr>
+	<td width=35%>DeliveryTimestamp_old</td>
+	<td width=30%>datetime</td>
+	<td width=15%>Yes</td>
+	<td width=20%></td>
+</tr>
+<tr>
+	<td width=35%>OrderTimestamp_old</td>
+	<td width=30%>datetime</td>
+	<td width=15%>Yes</td>
+	<td width=20%></td>
+</tr>
+<tr>
+	<td width=35%>LogisticTimestamp_old</td>
+	<td width=30%>datetime</td>
+	<td width=15%>Yes</td>
+	<td width=20%></td>
+</tr>
+<tr>
+	<td width=35%>dlz_malus_ReportedAdj</td>
+	<td width=30%>datetime</td>
+	<td width=15%>Yes</td>
+	<td width=20%></td>
+</tr>
+<tr>
+	<td width=35%>dlz_malus_RegAdj</td>
+	<td width=30%>datetime</td>
+	<td width=15%>Yes</td>
+	<td width=20%></td>
+</tr>
+<tr>
+	<td width=35%>dlz_malus_Diff1</td>
+	<td width=30%>int</td>
+	<td width=15%>Yes</td>
+	<td width=20%></td>
+</tr>
+<tr>
+	<td width=35%>dlz_malus_time_cluster</td>
+	<td width=30%>int</td>
+	<td width=15%>Yes</td>
+	<td width=20%></td>
+</tr>
+<tr>
+	<td width=35%>dlz_malus_Windeln</td>
+	<td width=30%>int</td>
+	<td width=15%>Yes</td>
+	<td width=20%></td>
+</tr>
+<tr>
+	<td width=35%>dlz_malus_Logistik</td>
+	<td width=30%>int</td>
+	<td width=15%>Yes</td>
+	<td width=20%></td>
+</tr>
+<tr>
+	<td width=35%>dlz_malus_DHL</td>
+	<td width=30%>int</td>
+	<td width=15%>Yes</td>
+	<td width=20%></td>
+</tr>
+<tr>
+	<td width=35%>dlz_malus_DHLFiege</td>
+	<td width=30%>int</td>
+	<td width=15%>Yes</td>
+	<td width=20%></td>
+</tr>
+<tr>
+	<td width=35%>dlz_malus_Gesamt</td>
+	<td width=30%>int</td>
+	<td width=15%>Yes</td>
+	<td width=20%></td>
+</tr>
+<tr>
+	<td width=35%>dlz_malus_date_cluster</td>
+	<td width=30%>datetime</td>
+	<td width=15%>Yes</td>
+	<td width=20%></td>
+</tr>
+</table>
+</body>
+</html>

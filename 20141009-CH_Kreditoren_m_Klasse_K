@@ -1,0 +1,27 @@
+select -- sl.[Document No_] as Order_ID
+		i.[Vendor No_]
+		, v.Name
+		, sl.No_ as EAN
+		, sl.Description as Beschreibung
+		, sum(cast(sl.Quantity as int)) as Anzahl
+		, i.Klasse
+from URBAN_NAV600_SL.dbo.[Urban-Brand GmbH$Sales Header] sh
+join URBAN_NAV600_SL.dbo.[Urban-Brand GmbH$Sales Line] sl
+	on sh.No_ = sl.[Document No_]
+join URBAN_NAV600_SL.dbo.[Urban-Brand GmbH$Item] i
+	on i.No_ = sl.No_
+join URBAN_NAV600_SL.dbo.[Urban-Brand GmbH$Vendor] v
+	on v.No_ = i.[Vendor No_]
+-- where sh.Status = 0
+where i.Klasse = 'K'
+-- and sl.No_ like '%02474'
+and (v.Name like '%(Kreditor CH)' or v.Name like '%(CH-Kreditor)')
+
+
+group by sl.No_
+		, v.Name
+		, i.[Vendor No_]
+		, sl.Description
+		, i.Klasse
+
+order by i.[Vendor No_], sl.No_
